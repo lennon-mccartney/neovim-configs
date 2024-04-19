@@ -82,14 +82,6 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('n', '<leader>m', ':NvimTreeFocus<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>M', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
--- testing
-vim.keymap.set('n', '<leader>t', function()
-  neotest.run.run()
-end)
-vim.keymap.set('n', '<leader>ta', function()
-  neotest.run.run(vim.fn.expand '%')
-end)
-
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
 -- is not what someone will guess without a bit more experience.
@@ -149,11 +141,12 @@ require('lazy').setup({
     'lewis6991/gitsigns.nvim',
     opts = {
       signs = {
-        add = { text = '+' },
-        change = { text = '~' },
+        add = { text = '┃' },
+        change = { text = '┃' },
         delete = { text = '_' },
         topdelete = { text = '‾' },
         changedelete = { text = '~' },
+        untracked = { text = '┃' },
       },
     },
   },
