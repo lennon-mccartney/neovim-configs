@@ -1,6 +1,7 @@
 -- must set leader before plugins are loaded
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+vim.g.python3_host_prog = '/usr/bin/python'
 
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
@@ -76,6 +77,18 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+-- open and move focus directory tree
+vim.keymap.set('n', '<leader>m', ':NvimTreeFocus<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>M', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
+
+-- testing
+vim.keymap.set('n', '<leader>t', function()
+  neotest.run.run()
+end)
+vim.keymap.set('n', '<leader>ta', function()
+  neotest.run.run(vim.fn.expand '%')
+end)
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
