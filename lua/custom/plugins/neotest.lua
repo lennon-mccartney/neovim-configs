@@ -12,5 +12,9 @@ return {
         runner = 'pytest',
       },
     },
+    discovery = {
+      enabled = true,
+      concurrent = 3,
+    },
   },
 }
